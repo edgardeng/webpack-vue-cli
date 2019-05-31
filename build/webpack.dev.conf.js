@@ -8,6 +8,8 @@ const baseWebpackConfig = require('./webpack.base.conf')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
+
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const portfinder = require('portfinder')
 
 const HOST = process.env.HOST
@@ -45,6 +47,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     }
   },
   plugins: [
+    new VueLoaderPlugin(), // webpack4 need
     new webpack.DefinePlugin({
       'process.env': require('../config/dev.env')
     }),
@@ -74,6 +77,8 @@ module.exports = new Promise((resolve, reject) => {
     if (err) {
       reject(err)
     } else {
+      console.log('****** start run dev *****')
+      console.log('webpack: ', webpack.version)
       // publish the new Port, necessary for e2e tests
       process.env.PORT = port
       // add port to devServer config
