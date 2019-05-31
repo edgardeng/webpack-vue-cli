@@ -1,0 +1,24 @@
+.DS_Store
+
+## Node ##
+node_modules/
+/dist
+npm-debug.log*
+
+# Editor directories and files
+.idea
+*.iml
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# gitbook
+_book/
+
+# output
+
+*/target
+/log
+
