@@ -43,7 +43,6 @@ exports.cssLoaders = function (options) {
     }
 
     // Extract CSS when that option is specified
-    console.log('options.extract', options.extract, loader)
     if (options.extract) {
       //   let extractLoader = {
       //     loader: MiniCssExtractPlugin.loader,
@@ -51,7 +50,7 @@ exports.cssLoaders = function (options) {
       //   }
       return [MiniCssExtractPlugin.loader].concat(loaders)
     } else {
-      return ['vue-style-loader', 'css-loader'].concat(loaders)
+      return ['vue-style-loader'].concat(loaders)
     }
   }
 
